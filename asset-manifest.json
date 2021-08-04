@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/react-admin-demo/static/css/main.a617e044.chunk.css",
-    "main.js": "/react-admin-demo/static/js/main.1bfa50c4.chunk.js",
-    "main.js.map": "/react-admin-demo/static/js/main.1bfa50c4.chunk.js.map",
-    "runtime-main.js": "/react-admin-demo/static/js/runtime-main.2b1bad52.js",
-    "runtime-main.js.map": "/react-admin-demo/static/js/runtime-main.2b1bad52.js.map",
-    "static/js/2.d366a11c.chunk.js": "/react-admin-demo/static/js/2.d366a11c.chunk.js",
-    "static/js/2.d366a11c.chunk.js.map": "/react-admin-demo/static/js/2.d366a11c.chunk.js.map",
-    "static/js/3.7b4f12d1.chunk.js": "/react-admin-demo/static/js/3.7b4f12d1.chunk.js",
-    "static/js/3.7b4f12d1.chunk.js.map": "/react-admin-demo/static/js/3.7b4f12d1.chunk.js.map",
+    "main.css": "/react-admin-demo/static/css/main.ea1455b2.chunk.css",
+    "main.js": "/react-admin-demo/static/js/main.3cb78dc5.chunk.js",
+    "main.js.map": "/react-admin-demo/static/js/main.3cb78dc5.chunk.js.map",
+    "runtime-main.js": "/react-admin-demo/static/js/runtime-main.8b8085b7.js",
+    "runtime-main.js.map": "/react-admin-demo/static/js/runtime-main.8b8085b7.js.map",
+    "static/js/2.a4dc1fe1.chunk.js": "/react-admin-demo/static/js/2.a4dc1fe1.chunk.js",
+    "static/js/2.a4dc1fe1.chunk.js.map": "/react-admin-demo/static/js/2.a4dc1fe1.chunk.js.map",
+    "static/js/3.8194fa57.chunk.js": "/react-admin-demo/static/js/3.8194fa57.chunk.js",
+    "static/js/3.8194fa57.chunk.js.map": "/react-admin-demo/static/js/3.8194fa57.chunk.js.map",
     "index.html": "/react-admin-demo/index.html",
-    "static/css/main.a617e044.chunk.css.map": "/react-admin-demo/static/css/main.a617e044.chunk.css.map",
-    "static/js/2.d366a11c.chunk.js.LICENSE.txt": "/react-admin-demo/static/js/2.d366a11c.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/react-admin-demo/static/media/logo.6ce24c58.svg"
+    "static/css/main.ea1455b2.chunk.css.map": "/react-admin-demo/static/css/main.ea1455b2.chunk.css.map",
+    "static/js/2.a4dc1fe1.chunk.js.LICENSE.txt": "/react-admin-demo/static/js/2.a4dc1fe1.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.2b1bad52.js",
-    "static/js/2.d366a11c.chunk.js",
-    "static/css/main.a617e044.chunk.css",
-    "static/js/main.1bfa50c4.chunk.js"
+    "static/js/runtime-main.8b8085b7.js",
+    "static/js/2.a4dc1fe1.chunk.js",
+    "static/css/main.ea1455b2.chunk.css",
+    "static/js/main.3cb78dc5.chunk.js"
   ]
 }
