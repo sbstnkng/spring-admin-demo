@@ -1,5 +1,5 @@
 import { List, Datagrid, TextField, EmailField } from 'react-admin';
-import { CustomUrlField } from '../customUrlField';
+import { CustomUrlField } from './CustomUrlField';
 
 export const UserList = (props: any) => (
   <List {...props}>
