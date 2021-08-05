@@ -1,7 +1,7 @@
 # React Admin Demo
 
-[![Build and Deploy](https://github.com/sbstnkng/react-typescript-template/workflows/Build%20and%20Deploy/badge.svg)](https://github.com/sbstnkng/react-admin-demo/actions/workflows/ci-pipeline.yml)
-[![CodeQL](https://github.com/sbstnkng/react-typescript-template/workflows/CodeQL/badge.svg)](https://github.com/sbstnkng/react-admin-demo/security/code-scanning)
+[![Build and Deploy](https://github.com/sbstnkng/react-admin-demo/actions/workflows/ci-pipeline.yml/badge.svg)](https://github.com/sbstnkng/react-admin-demo/actions/workflows/ci-pipeline.yml)
+[![CodeQL](https://github.com/sbstnkng/react-admin-demo/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/sbstnkng/react-admin-demo/actions/workflows/codeql-analysis.yml)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
