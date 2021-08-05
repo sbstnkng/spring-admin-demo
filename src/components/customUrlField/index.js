@@ -1,3 +1,3 @@
-import { CustomUrlField } from './customUrlField';
+import { CustomUrlField } from './CustomUrlField';
 
 export { CustomUrlField };
