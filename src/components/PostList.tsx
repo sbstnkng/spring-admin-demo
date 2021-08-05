@@ -1,4 +1,4 @@
-import { useMediaQuery } from '@material-ui/core';
+import { useMediaQuery, Theme } from '@material-ui/core';
 import {
   List,
   SimpleList,
@@ -6,20 +6,30 @@ import {
   TextField,
   ReferenceField,
   EditButton,
+  TextInput,
+  ReferenceInput,
+  SelectInput,
 } from 'react-admin';
 
+const postFilters = [
+  <TextInput source="q" label="Search" alwaysOn />,
+  <ReferenceInput source="userId" label="User" reference="users" allowEmpty>
+    <SelectInput optionText="name" />
+  </ReferenceInput>,
+];
+
 export const PostList = (props: any) => {
-  const isSmall = useMediaQuery((theme: any) => theme.breakpoints.down('sm'));
+  const isSmall = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
 
   return (
-    <List {...props}>
+    <List filters={postFilters} {...props}>
       {isSmall ? (
         <SimpleList
           primaryText={(record) => record.title}
-          secondaryText={(record) => `${record.vies} views`}
-          tertiaryText={(record) =>
-            new Date(record.published_at).toLocaleDateString()
-          }
+          secondaryText={(record) => `${record.views} views`}
+          tertiaryText={(record) => {
+            return new Date(record.published_at).toLocaleDateString();
+          }}
         />
       ) : (
         <Datagrid>
