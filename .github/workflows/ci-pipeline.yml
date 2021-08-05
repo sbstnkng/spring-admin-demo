@@ -12,7 +12,6 @@ jobs:
       - name: Install and Build 🔧
         run: |
           npm install
-          npm test
           npm run build
       - name: Deploy 🚀
         if: github.ref == 'refs/heads/master'
