@@ -10,8 +10,12 @@ jobs:
           persist-credentials: false
 
       - name: Install and Build 🔧
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
         run: |
           npm install
+          npm test
           npm run build
       - name: Deploy 🚀
         if: github.ref == 'refs/heads/master'
