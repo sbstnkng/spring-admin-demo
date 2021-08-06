@@ -1,8 +1,6 @@
-import { render, screen } from '@testing-library/react';
-import { Admin, Resource } from 'react-admin';
+import { render } from '@testing-library/react';
 import App from './App';
 
-xtest('renders App', () => {
+test('renders App', () => {
   render(<App />);
-  //TODO: do some testing here
 });

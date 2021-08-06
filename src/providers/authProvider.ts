@@ -1,15 +1,10 @@
-type LoginProps = {
-  username: string;
-};
-type ErrorProps = {
-  status: number;
-};
+import { AuthProvider } from '../types/provider.interface';
 
 const USERNAME = 'username';
 
-const authProvider = {
+const authProvider: AuthProvider = {
   // call when the user attempts to log in
-  login: ({ username }: LoginProps) => {
+  login: ({ username }) => {
     localStorage.setItem(USERNAME, username);
     // accept all username/password combinations
     return Promise.resolve();
@@ -20,7 +15,7 @@ const authProvider = {
     return Promise.resolve();
   },
   // called when the API returns an error
-  checkError: ({ status }: ErrorProps) => {
+  checkError: ({ status }) => {
     if (status === 401 || status === 403) {
       localStorage.removeItem(USERNAME);
       return Promise.reject();
