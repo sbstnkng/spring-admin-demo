@@ -1,6 +1,7 @@
 import { Admin, Resource } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 import authProvider from './providers/authProvider';
+import { LoginPage } from './pages/loginPage';
 import { Dashboard } from './components/dashboard';
 import { PostList } from './components/PostList';
 import { PostEdit } from './components/PostEdit';
@@ -17,6 +18,7 @@ const App = () => {
   return (
     <div className="App">
       <Admin
+        loginPage={LoginPage}
         dashboard={Dashboard}
         authProvider={authProvider}
         dataProvider={dataProvider}
