@@ -2,7 +2,7 @@ import { Admin, Resource } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 import authProvider from './providers/authProvider';
 import { Layout, Login } from './layout';
-import { Dashboard } from './components/dashboard';
+import { Dashboard } from './dashboard';
 import { PostList } from './components/PostList';
 import { PostEdit } from './components/PostEdit';
 import { PostCreate } from './components/PostCreate';
