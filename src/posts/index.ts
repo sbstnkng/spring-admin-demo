@@ -4,9 +4,11 @@ import { PostList } from './PostList';
 import { PostCreate } from './PostCreate';
 import { PostEdit } from './PostEdit';
 
-export default {
+const postsConfig = {
   list: PostList,
   create: PostCreate,
   edit: PostEdit,
   icon: PostIcon,
 };
+
+export default postsConfig;

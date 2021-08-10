@@ -4,8 +4,7 @@ import authProvider from './providers/authProvider';
 import { Layout, Login } from './layout';
 import { Dashboard } from './dashboard';
 import posts from './posts';
-import { UserList } from './components/UserList';
-import UserIcon from '@material-ui/icons/Group';
+import users from './users';
 
 const App = () => {
   const dataProvider = jsonServerProvider(
@@ -22,7 +21,7 @@ const App = () => {
         dataProvider={dataProvider}
       >
         <Resource name="posts" {...posts} />
-        <Resource name="users" list={UserList} icon={UserIcon} />
+        <Resource name="users" {...users} />
       </Admin>
     </div>
   );
