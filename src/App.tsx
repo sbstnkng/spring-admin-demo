@@ -3,11 +3,8 @@ import jsonServerProvider from 'ra-data-json-server';
 import authProvider from './providers/authProvider';
 import { Layout, Login } from './layout';
 import { Dashboard } from './dashboard';
-import { PostList } from './components/PostList';
-import { PostEdit } from './components/PostEdit';
-import { PostCreate } from './components/PostCreate';
+import posts from './posts';
 import { UserList } from './components/UserList';
-import PostIcon from '@material-ui/icons/Book';
 import UserIcon from '@material-ui/icons/Group';
 
 const App = () => {
@@ -24,13 +21,7 @@ const App = () => {
         authProvider={authProvider}
         dataProvider={dataProvider}
       >
-        <Resource
-          name="posts"
-          list={PostList}
-          edit={PostEdit}
-          create={PostCreate}
-          icon={PostIcon}
-        />
+        <Resource name="posts" {...posts} />
         <Resource name="users" list={UserList} icon={UserIcon} />
       </Admin>
     </div>
