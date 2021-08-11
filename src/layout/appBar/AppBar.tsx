@@ -1,11 +1,12 @@
 import { FC } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { useMediaQuery, Theme } from '@material-ui/core';
 import { AppBar as RaAppBar } from 'react-admin';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   title: {
-    flex: 1,
+    flex: 'auto',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
@@ -17,6 +18,7 @@ const useStyles = makeStyles({
 
 export const AppBar: FC = (props: any) => {
   const classes = useStyles();
+  const isSmall = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
 
   return (
     <RaAppBar {...props} elevation={1}>
@@ -32,7 +34,7 @@ export const AppBar: FC = (props: any) => {
         className={classes.title}
         id="app-title"
       >
-        React-Admin Demo
+        {!isSmall && <span>React-Admin Demo</span>}
       </Typography>
       <span className={classes.spacer} />
     </RaAppBar>
