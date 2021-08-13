@@ -84,7 +84,7 @@ export const lightTheme = {
     MuiButton: {
       contained: {
         backgroundColor: '#fff',
-        color: '##3498db',
+        color: '#3498db',
         boxShadow: 'none',
       },
     },
