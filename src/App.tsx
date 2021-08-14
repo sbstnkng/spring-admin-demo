@@ -1,10 +1,13 @@
 import { Admin, Resource } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
-import authProvider from './providers/authProvider';
+import { FirebaseAuthProvider } from 'react-admin-firebase';
 import { Layout, Login } from './layout';
 import { Dashboard } from './dashboard';
 import posts from './posts';
 import users from './users';
+import { firebaseConfig } from './providers/firebaseConfig';
+
+const authProvider = FirebaseAuthProvider(firebaseConfig, {});
 
 const App = () => {
   const dataProvider = jsonServerProvider(
