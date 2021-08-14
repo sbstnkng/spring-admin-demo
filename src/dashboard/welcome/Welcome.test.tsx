@@ -6,7 +6,7 @@ test('renders title', () => {
 
   const title = screen.getByTestId('title');
 
-  expect(title).toHaveTextContent('Welcome to the react-admin demo');
+  expect(title).toHaveTextContent('Welcome to GitHub Ground Control');
 });
 
 test('renders subtitle', () => {

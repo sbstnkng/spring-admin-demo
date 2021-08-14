@@ -32,7 +32,7 @@ export const Welcome: FC = () => {
             gutterBottom
             data-testid="title"
           >
-            Welcome to the react-admin demo
+            Welcome to GitHub Ground Control
           </Typography>
           <Box maxWidth="40em">
             <Typography

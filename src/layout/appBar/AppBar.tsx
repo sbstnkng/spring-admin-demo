@@ -34,7 +34,7 @@ export const AppBar: FC = (props: any) => {
         className={classes.title}
         id="app-title"
       >
-        {!isSmall && <span>React-Admin Demo</span>}
+        {!isSmall && <span>GitHub Ground Control</span>}
       </Typography>
       <span className={classes.spacer} />
     </RaAppBar>
