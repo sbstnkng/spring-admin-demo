@@ -4,6 +4,7 @@ import { FirebaseAuthProvider } from 'react-admin-firebase';
 import GithubProvider from './context/GithubContext';
 import { Layout, Login } from './layout';
 import { Dashboard } from './dashboard';
+import customRoutes from './routes';
 import posts from './posts';
 import users from './users';
 import { firebaseConfig } from './providers/firebaseConfig';
@@ -24,6 +25,7 @@ const App = () => {
           layout={Layout}
           loginPage={Login}
           dashboard={Dashboard}
+          customRoutes={customRoutes}
           authProvider={authProvider}
           dataProvider={dataProvider}
         >

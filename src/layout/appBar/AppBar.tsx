@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useMediaQuery, Theme } from '@material-ui/core';
 import { AppBar as RaAppBar } from 'react-admin';
 import Typography from '@material-ui/core/Typography';
+import CustomUserMenu from './CustomUserMenu';
 
 const useStyles = makeStyles({
   title: {
@@ -21,7 +22,7 @@ export const AppBar: FC = (props: any) => {
   const isSmall = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
 
   return (
-    <RaAppBar {...props} elevation={1}>
+    <RaAppBar {...props} elevation={1} userMenu={<CustomUserMenu />}>
       <Typography
         variant="h6"
         color="inherit"
