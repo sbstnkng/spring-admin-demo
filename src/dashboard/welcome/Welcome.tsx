@@ -1,7 +1,8 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import { Box, Card, CardActions, Button, Typography } from '@material-ui/core';
 import CodeIcon from '@material-ui/icons/Code';
 import { makeStyles } from '@material-ui/core/styles';
+import { GithubContext } from '../../context/GithubContext';
 import publishArticleImage from './welcome_illustration.svg';
 
 const useStyles = makeStyles((theme) => ({
@@ -21,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const Welcome: FC = () => {
   const classes = useStyles();
+  const { userInfo } = useContext(GithubContext);
 
   return (
     <Card className={classes.root}>
@@ -32,7 +34,7 @@ export const Welcome: FC = () => {
             gutterBottom
             data-testid="title"
           >
-            Welcome to GitHub Ground Control
+            Welcome {userInfo.username} to GitHub Ground Control
           </Typography>
           <Box maxWidth="40em">
             <Typography

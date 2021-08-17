@@ -1,7 +1,9 @@
+import { useContext } from 'react';
 import { Login as RaLogin } from 'react-admin';
 import { makeStyles } from '@material-ui/core/styles';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
+import { GithubContext } from '../../context/GithubContext';
 
 const useStyles = makeStyles((theme) => ({
   hint: {
@@ -12,29 +14,44 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// Configure FirebaseUI
-const uiConfig = {
-  // Popup signin flow rather than redirect flow
-  signInFlow: 'popup',
-  // Redirect to root page after sign in is successful.
-  signInSuccessUrl: '#/',
-  // Dispay GitHub as auth provider
-  signInOptions: [firebase.auth.GithubAuthProvider.PROVIDER_ID],
-};
-
-const SignInScreen = () => (
-  <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
-);
-
 export const Login = (props: any) => {
   const classes = useStyles();
+  const { setUserInfo } = useContext(GithubContext);
+
+  // Configure FirebaseUI
+  const uiConfig = {
+    // Popup signin flow rather than redirect flow
+    signInFlow: 'popup',
+    // Redirect to root page after sign in is successful.
+    signInSuccessUrl: '#/',
+    // Dispay GitHub as auth provider
+    signInOptions: [firebase.auth.GithubAuthProvider.PROVIDER_ID],
+    callbacks: {
+      signInSuccessWithAuthResult: (authResult: any, redirectUrl: any) => {
+        // User successfully signed in.
+        // Return type determines whether we continue the redirect automatically
+        // or whether we leave that to developer to handle.
+        const { additionalUserInfo, credential } = authResult;
+        setUserInfo({
+          username: additionalUserInfo.username,
+          token: credential.accessToken,
+        });
+
+        return true;
+      },
+    },
+  };
+
   return (
     <RaLogin backgroundImage="https://source.unsplash.com/1600x900/?landscape">
       <div>
         <div className={classes.hint}>
           Please sign in with your GitHub account.
         </div>
-        <SignInScreen />
+        <StyledFirebaseAuth
+          uiConfig={uiConfig}
+          firebaseAuth={firebase.auth()}
+        />
       </div>
     </RaLogin>
   );
