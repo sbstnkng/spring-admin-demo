@@ -8,7 +8,9 @@ import posts from './posts';
 import users from './users';
 import { firebaseConfig } from './providers/firebaseConfig';
 
-const authProvider = FirebaseAuthProvider(firebaseConfig, {});
+const authProvider = FirebaseAuthProvider(firebaseConfig, {
+  persistence: 'none',
+});
 
 const App = () => {
   const dataProvider = jsonServerProvider(
