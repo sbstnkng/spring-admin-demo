@@ -39,7 +39,7 @@ export const Login = (props: any) => {
           token: credential.accessToken,
         };
         setUserInfo(userInfo);
-        notify('Login successful!', 'success', {}, false, 5000);
+        notify('Login successful!', 'success');
 
         return true;
       },

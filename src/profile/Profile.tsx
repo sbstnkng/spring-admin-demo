@@ -27,9 +27,9 @@ const Profile = () => {
     try {
       await user?.delete();
       logout();
-      notify('Your account has been deleted.', 'success', {}, false, 5000);
+      notify('Your account has been deleted.', 'success');
     } catch (error) {
-      notify('Failed to delete Account.', 'error', {}, false, 5000);
+      notify('Failed to delete Account.', 'error');
       console.error(error);
     }
   };
