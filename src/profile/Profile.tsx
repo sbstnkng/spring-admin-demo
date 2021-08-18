@@ -9,9 +9,10 @@ import { Title, useLogout } from 'react-admin';
 import firebase from 'firebase';
 import Item from './Item';
 import { GithubContext } from '../context/GithubContext';
+import { IGithubContext } from '../types/context.interface';
 
 const Profile = () => {
-  const { userInfo } = useContext(GithubContext);
+  const { userInfo }: IGithubContext = useContext(GithubContext);
   const logout = useLogout();
 
   const handleAccountDelete = async () => {

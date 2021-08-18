@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
 import { GithubContext } from '../../context/GithubContext';
+import { IGithubContext, IGithubUserInfo } from '../../types/context.interface';
 
 const useStyles = makeStyles((theme) => ({
   hint: {
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const Login = (props: any) => {
   const classes = useStyles();
-  const { setUserInfo } = useContext(GithubContext);
+  const { setUserInfo }: IGithubContext = useContext(GithubContext);
 
   // Configure FirebaseUI
   const uiConfig = {
@@ -32,10 +33,11 @@ export const Login = (props: any) => {
         // Return type determines whether we continue the redirect automatically
         // or whether we leave that to developer to handle.
         const { additionalUserInfo, credential } = authResult;
-        setUserInfo({
+        const userInfo: IGithubUserInfo = {
           username: additionalUserInfo.username,
           token: credential.accessToken,
-        });
+        };
+        setUserInfo(userInfo);
 
         return true;
       },
