@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Login as RaLogin } from 'react-admin';
+import { Login as RaLogin, useNotify } from 'react-admin';
 import { makeStyles } from '@material-ui/core/styles';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 export const Login = (props: any) => {
   const classes = useStyles();
   const { setUserInfo }: IGithubContext = useContext(GithubContext);
+  const notify = useNotify();
 
   // Configure FirebaseUI
   const uiConfig = {
@@ -38,6 +39,7 @@ export const Login = (props: any) => {
           token: credential.accessToken,
         };
         setUserInfo(userInfo);
+        notify('Login successful!', 'success', {}, false, 5000);
 
         return true;
       },

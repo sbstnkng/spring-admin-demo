@@ -61,7 +61,7 @@ export const lightTheme = {
     type: 'light' as 'light',
   },
   shape: {
-    borderRadius: 10,
+    borderRadius: 5,
   },
   overrides: {
     RaMenuItemLink: {
