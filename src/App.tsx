@@ -1,23 +1,18 @@
 import { Admin, Resource } from 'react-admin';
-import jsonServerProvider from 'ra-data-json-server';
 import { FirebaseAuthProvider } from 'react-admin-firebase';
 import GithubProvider from './context/GithubContext';
 import { Layout, Login } from './layout';
 import { Dashboard } from './dashboard';
 import customRoutes from './routes';
-import posts from './posts';
-import users from './users';
+import repositories from './repositories';
 import { firebaseConfig } from './providers/firebaseConfig';
+import { githubDataProvider } from './providers/githubDataProvider';
 
 const authProvider = FirebaseAuthProvider(firebaseConfig, {
   persistence: 'none',
 });
 
 const App = () => {
-  const dataProvider = jsonServerProvider(
-    'https://jsonplaceholder.typicode.com'
-  );
-
   return (
     <div className="App">
       <GithubProvider>
@@ -27,10 +22,9 @@ const App = () => {
           dashboard={Dashboard}
           customRoutes={customRoutes}
           authProvider={authProvider}
-          dataProvider={dataProvider}
+          dataProvider={githubDataProvider}
         >
-          <Resource name="posts" {...posts} />
-          <Resource name="users" {...users} />
+          <Resource name="repositories" {...repositories} />
         </Admin>
       </GithubProvider>
     </div>

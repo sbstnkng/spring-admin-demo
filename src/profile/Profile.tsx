@@ -16,7 +16,7 @@ import Item from './Item';
 import { GithubContext } from '../context/GithubContext';
 import { IGithubContext } from '../types/context.interface';
 
-const Profile = () => {
+const Profile = (props: any) => {
   const { userInfo }: IGithubContext = useContext(GithubContext);
   const [open, setOpen] = useState(false);
   const logout = useLogout();
