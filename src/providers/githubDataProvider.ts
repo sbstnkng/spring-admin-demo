@@ -1,4 +1,5 @@
 import {
+  fetchUtils,
   GetListParams,
   GetOneParams,
   GetManyParams,
@@ -9,34 +10,64 @@ import {
   DeleteParams,
   DeleteManyParams,
 } from 'react-admin';
-import { DataProvider } from '../types/provider.interface';
 
-export const githubDataProvider: DataProvider = {
-  getList: (resource: string, params: GetListParams) => {
+export class GithubDataProvider {
+  private static URL: string = 'https://api.github.com/';
+  private token: string;
+
+  constructor(token: string) {
+    this.token = token;
+  }
+
+  getList(resource: string, params: GetListParams) {
+    console.log('resource:', resource);
+    console.log('params:', params);
     return Promise.resolve({ total: 0, data: [] });
-  },
-  getOne: (resource: string, params: GetOneParams) => {
+  }
+
+  getOne(resource: string, params: GetOneParams) {
+    console.log('resource:', resource);
+    console.log('params:', params);
     return Promise.reject();
-  },
-  getMany: (resource: string, params: GetManyParams) => {
+  }
+
+  getMany(resource: string, params: GetManyParams) {
+    console.log('resource:', resource);
+    console.log('params:', params);
     return Promise.resolve({ data: [] });
-  },
-  getManyReference: (resource: string, params: GetManyReferenceParams) => {
+  }
+
+  getManyReference(resource: string, params: GetManyReferenceParams) {
+    console.log('resource:', resource);
+    console.log('params:', params);
     return Promise.resolve({ total: 0, data: [] });
-  },
-  create: (resource: string, params: CreateParams) => {
+  }
+
+  create(resource: string, params: CreateParams) {
     return Promise.reject('Not supported');
-  },
-  update: (resource: string, params: UpdateParams) => {
+  }
+
+  update(resource: string, params: UpdateParams) {
     return Promise.reject('Not supported');
-  },
-  updateMany: (resource: string, params: UpdateManyParams) => {
+  }
+
+  updateMany(resource: string, params: UpdateManyParams) {
     return Promise.reject('Not supported');
-  },
-  delete: (resource: string, params: DeleteParams) => {
+  }
+
+  delete(resource: string, params: DeleteParams) {
     return Promise.reject('Not supported');
-  },
-  deleteMany: (resource: string, params: DeleteManyParams) => {
+  }
+
+  deleteMany(resource: string, params: DeleteManyParams) {
     return Promise.reject('Not supported');
-  },
-};
+  }
+
+  fetch(path: string, options: any = {}) {
+    options.user = {
+      authenticated: true,
+      token: this.token,
+    };
+    return fetchUtils.fetchJson(GithubDataProvider.URL + path, options);
+  }
+}

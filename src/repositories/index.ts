@@ -4,6 +4,7 @@ import { RepositoryList } from './RepositoryList';
 const repositoriesConfig = {
   list: RepositoryList,
   icon: CollectionsBookmark,
+  options: { label: 'Repositories' },
 };
 
 export default repositoriesConfig;

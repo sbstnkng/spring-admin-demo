@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { Admin, Resource } from 'react-admin';
 import { FirebaseAuthProvider } from 'react-admin-firebase';
 import GithubProvider from './context/GithubContext';
@@ -6,13 +7,18 @@ import { Dashboard } from './dashboard';
 import customRoutes from './routes';
 import repositories from './repositories';
 import { firebaseConfig } from './providers/firebaseConfig';
-import { githubDataProvider } from './providers/githubDataProvider';
+import { GithubDataProvider } from './providers/githubDataProvider';
+import { GithubContext } from './context/GithubContext';
+import { IGithubContext } from './types/context.interface';
 
 const authProvider = FirebaseAuthProvider(firebaseConfig, {
   persistence: 'none',
 });
 
 const App = () => {
+  const { userInfo }: IGithubContext = useContext(GithubContext);
+  const dataProvider = new GithubDataProvider(userInfo.token);
+
   return (
     <div className="App">
       <GithubProvider>
@@ -22,9 +28,9 @@ const App = () => {
           dashboard={Dashboard}
           customRoutes={customRoutes}
           authProvider={authProvider}
-          dataProvider={githubDataProvider}
+          dataProvider={dataProvider}
         >
-          <Resource name="repositories" {...repositories} />
+          <Resource name="repos" {...repositories} />
         </Admin>
       </GithubProvider>
     </div>
