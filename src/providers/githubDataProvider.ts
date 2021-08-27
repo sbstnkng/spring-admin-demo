@@ -1,5 +1,4 @@
 import {
-  fetchUtils,
   GetListParams,
   GetOneParams,
   GetManyParams,
@@ -10,13 +9,14 @@ import {
   DeleteParams,
   DeleteManyParams,
 } from 'react-admin';
+import { Octokit } from 'octokit';
 
 export class GithubDataProvider {
   private static URL: string = 'https://api.github.com/';
-  private token: string;
+  private octokit: Octokit;
 
   constructor(token: string) {
-    this.token = token;
+    this.octokit = new Octokit({ auth: token });
   }
 
   getList(resource: string, params: GetListParams) {
@@ -61,13 +61,5 @@ export class GithubDataProvider {
 
   deleteMany(resource: string, params: DeleteManyParams) {
     return Promise.reject('Not supported');
-  }
-
-  fetch(path: string, options: any = {}) {
-    options.user = {
-      authenticated: true,
-      token: this.token,
-    };
-    return fetchUtils.fetchJson(GithubDataProvider.URL + path, options);
   }
 }
